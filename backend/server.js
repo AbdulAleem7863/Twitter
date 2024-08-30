@@ -36,13 +36,12 @@ app.use('/api/users', userRoutes)
 app.use('/api/posts', postRoutes)
 app.use('/api/notifications', notificationRoutes)
 
-if (process.env.NODE_ENV == "production") {
-    app.use(express.static(path.join(__dirname, "/frontend/dist")));
-    app.get('/', (req, res) => {
-        res.send("Hello world")
-    })
 
-}
+app.get('/', (req, res) => {
+    res.send("Hello world")
+})
+
+
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`)
